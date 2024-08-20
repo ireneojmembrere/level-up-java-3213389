@@ -5,10 +5,15 @@ import java.util.Scanner;
 public class App {
 
     public static double calculateWaterBill(double gallonsUsage) {
-        if (gallonsUsage <= 1496){
-            return 18.84;
+        double gallonsInCCF = 748;
+        double minGallonsCharged = gallonsInCCF * 2;
+        double minBill = 18.84;
+        double costPerCCF = 3.90;
+
+        if (gallonsUsage <= minGallonsCharged){
+            return minBill;
         } else{
-            return 18.84 + 3.90*java.lang.Math.ceil((gallonsUsage - 1496)/748);
+            return minBill + costPerCCF*java.lang.Math.ceil((gallonsUsage - minGallonsCharged)/ gallonsInCCF);
         }
     }
 
