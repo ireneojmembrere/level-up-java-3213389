@@ -4,8 +4,11 @@ import java.util.Scanner;
 
 public class App {
     public static boolean isEven(int n) {
-        // todo: implement functionality
-        return false;
+        if (n % 2 == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static void main(String[] args) {
