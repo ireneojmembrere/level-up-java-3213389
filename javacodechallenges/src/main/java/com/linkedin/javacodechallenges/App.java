@@ -7,8 +7,24 @@ public class App {
     public static List<String> findStudentsWithIncompleteVolunteerEvents(
             List<String> students,
             Map<String, List<String>> attendeesMapping) {
-        // TODO: implement function
-        return List.of();
+        int[] howManyEvents = new int[students.size()];
+
+        for (int i = 0; i < students.size(); i++){
+                for (String key : attendeesMapping.keySet()){
+                        if (attendeesMapping.get(key).contains(students.get(i))){
+                                howManyEvents[i]++;
+                        }
+                }
+        }
+
+        List<String> studentsWithIncompleteVolunteerEvents = List.of();
+        for (int i = 0; i < students.size(); i++) {
+                if (howManyEvents[i] < 2){
+                        studentsWithIncompleteVolunteerEvents.add(students.get(i));
+                }
+        }
+
+        return studentsWithIncompleteVolunteerEvents;
     }
 
     public static void main(String[] args) {
