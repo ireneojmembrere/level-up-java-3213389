@@ -2,6 +2,7 @@ package com.linkedin.javacodechallenges;
 
 import java.util.Map;
 import java.util.Scanner;
+import java.lang.Character;
 
 public class App {
     public static final Map<Character, Integer> letterPoints = Map.ofEntries(Map.entry('A', 1),
@@ -14,7 +15,14 @@ public class App {
             Map.entry('Z', 10));
 
     public static int wordScoreCalculator(String word) {
-        return 0;
+        int totalScore = 0;
+        for (int i = 0; i < word.length(); i++){
+            if (letterPoints.containsKey(Character.toUpperCase(word.charAt(i)))){
+                totalScore += letterPoints.get(Character.toUpperCase(word.charAt(i)));
+            }
+        }
+
+        return totalScore;
     }
 
     public static void main(String[] args) {
